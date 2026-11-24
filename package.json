@@ -1,0 +1,1 @@
+{"description":"全球态势感知台实时版 — standalone dashboard (EONET / USGS / CelesTrak / NASA FIRMS)","engines":{"node":">=18"},"license":"MIT","main":"server.js","name":"situation-dashboard","scripts":{"start":"node server.js"},"version":"1.0.0"}
