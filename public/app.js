@@ -2,7 +2,6 @@
 'use strict';
 
 (function () {
-  var MAANSHAN = { lat: 31.67, lon: 118.51 };
   var MU = 398600.4418; // km^3/s^2
   var RE = 6371; // km
   var MIN_ZOOM = 0.9, MAX_ZOOM = 60;
@@ -435,25 +434,6 @@
         ctx.fillText(sat.nameZh, ps.x + 10, ps.y);
         screenMarkers.push({ x: ps.x, y: ps.y, type: 'satellite', data: sat });
       }
-    }
-    // Ma'anshan home marker
-    var pm = project(MAANSHAN.lon, MAANSHAN.lat);
-    if (pm.visible) {
-      ctx.beginPath();
-      ctx.arc(pm.x, pm.y, 4, 0, Math.PI * 2);
-      ctx.fillStyle = '#ffffff';
-      ctx.fill();
-      ctx.lineWidth = 1.5;
-      ctx.strokeStyle = '#22d3ee';
-      ctx.stroke();
-      ctx.font = '11px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
-      ctx.textAlign = 'left';
-      ctx.textBaseline = 'middle';
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = 'rgba(5,11,20,0.9)';
-      ctx.strokeText('马鞍山', pm.x + 8, pm.y);
-      ctx.fillStyle = '#e2e8f0';
-      ctx.fillText('马鞍山', pm.x + 8, pm.y);
     }
   }
 
@@ -888,9 +868,6 @@
   }
   $('zoomIn').addEventListener('click', function () { setZoom(state.zoom * 1.6); });
   $('zoomOut').addEventListener('click', function () { setZoom(state.zoom / 1.6); });
-  $('goMaanshan').addEventListener('click', function () {
-    flyTo(MAANSHAN.lon, MAANSHAN.lat, { zoom: Math.max(state.zoom, 4) });
-  });
 
   // ------------------------------------------------------------ pointer input
   var pointers = new Map();
